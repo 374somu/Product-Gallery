@@ -1,0 +1,127 @@
+<html>
+    <head>
+        <title>Product Gallery</title>
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+        <link rel="stylesheet" type="text/css" href="./assets/css/slick.css">
+        <link rel="stylesheet" type="text/css" href="./assets/css/slick-theme.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+        <style>
+          .products .slick-slide {
+            margin: 0 20px;
+          }
+          .products img
+          {
+            width: 100%;
+          }
+          @media only screen and (max-width:768px)
+          {
+            .product_wrapper
+            {
+              flex-direction: column-reverse;
+              width: 100% !important;
+            }
+            .products img
+            {
+              width: 98% !important;
+            }
+            .products.slider
+            {
+              margin-bottom: 15px;
+            }
+            .products.slider,
+            .product_thumbnails.slider
+            {
+              width: 100% !important;
+            }
+            .products .slick-slide {
+              margin: 0 0 !important;
+            }
+            .slick-list
+            {
+              padding:0 20% 0 0;
+            }
+          }
+        </style>
+    </head>
+    <body>
+        <div class="product_wrapper" style="width:50%;display: flex;">
+            <section class="product_thumbnails slider" style="width: 15%;">
+                <div>
+                  <img src="./assets/images/product1-75x75.png">
+                </div>
+                <div>
+                  <img src="./assets/images/product2-75x75.webp">
+                </div>
+                <div>
+                  <img src="./assets/images/product3-75x75.jpg">
+                </div>
+                <div>
+                  <img src="./assets/images/product3-75x75.jpg">
+                </div>
+                <div>
+                  <img src="http://placehold.jp/75x75.png">
+                </div>
+            </section>
+            <section class="products slider" style="width: 75%;">
+                <div>
+                  <img  src="./assets/images/product1.png">
+                </div>
+                <div>
+                  <img  src="./assets/images/product2.webp">
+                </div>
+                <div>
+                  <img  src="./assets/images/product3.jpg">
+                </div>
+                <div>
+                  <img  src="./assets/images/product4.jpg">
+                </div>
+                <div>
+                  <img  src="./assets/images/product5.jpg">
+                </div>
+            </section>          
+        </div>
+        
+        <script>
+            $(document).ready(function(){
+                $(".products").slick({
+                    infinite: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows: true,
+                    asNavFor: '.product_thumbnails',
+                    prevArrow: '<i class="product_slider_left fa-solid fa-angle-left"></i>',
+                    nextArrow: '<i class="product_slider_right fa-solid fa-angle-right"></i>'
+                });
+                if(window.innerWidth <= 768)
+                {
+                  $(".product_thumbnails").slick({
+                      centerPadding: '10px',
+                      infinite: true,
+                      vertical: false,
+                      slidesToShow: 5,
+                      slidesToScroll: 1,
+                      asNavFor: '.products',
+                      verticalSwiping: false,
+                      centerMode: true,
+                  });
+                }
+                else
+                {
+                  $(".product_thumbnails").slick({
+                      centerPadding: '10px',
+                      infinite: true,
+                      vertical: true,
+                      slidesToShow: 4,
+                      slidesToScroll: 1,
+                      asNavFor: '.products',
+                      verticalSwiping: true
+                  });
+                }
+            });           
+        </script>
+        <script src="./assets/js/slick.js" type="text/javascript" charset="utf-8"></script>
+    </body>
+</html>
+
